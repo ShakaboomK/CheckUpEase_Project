@@ -136,6 +136,7 @@ function Firstdis()
         <h3>nextcare2022</h3>
         <h3>Term of use</h3>
         <h3>Privacy Policy</h3>
+        
 
 
        </div>
