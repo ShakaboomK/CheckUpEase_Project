@@ -6,31 +6,47 @@ body{
 #navbar{
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+    gap:5vw;
     align-items: center;
     height: 103px;
+    justify-content: space-between;
+    width:95vw;
+    /* color:black; */
     
-    /* width:100%; */
-    /* border:0.5px solid black;
-     */
+    
     
 
+}
+#nom{
+    display:flex;
+    gap:5vw;
+    align-items: center;
+   
+}
+#com{
+    display:flex;
+    gap:5vw;
+    align-items: center;
+
+}
+.navitems Link{
+    color:black;
+    /* font-size: 5vw; */
+}
+
+#nesnavitems{
+    display:flex;
+    gap:4vw;
+    align-items: center;
 }
 .logo{
-    height:100px;
-    width:120px;
-    background-image: url('../../public/Screenshot\ \(38\)\ 1.png');
-    /* background-size: 30px; */
-    background-repeat: no-repeat;
-    margin-top:2px;
 
+    height: 60px;
+    width:60px;
+    
 }
-#search{
-    border:1px solid black;
-}
-.navitems{
-    font-size: 1vw;
-}
+
+
 #firstdis1{
    background-color: rgba(188, 232, 232);
      border:0.5px solid black;
@@ -76,6 +92,11 @@ body{
 
 
 }
+/* .navitems{
+    text-decoration: none;
+   
+    
+} */
 #buttons button{
     background-color: rgb(207, 79, 105);
     height:50px;
@@ -85,13 +106,14 @@ body{
     color:white;
 }
 #inf{
+     /* outline: none; */
+     /* border: 1px solid black;  */
+    border-radius: 5px;
     /* outline: none; */
-    /* border: 1px solid black; 
-    border-radius: 5px; */
-    outline: none;
-    border:0.2px solid white;
+    border:none;
     height:3vh;
-    width:5vw;
+    width:10vw;
+   
 }
 #firstdis2{
     display:flex;
@@ -296,5 +318,8 @@ body{
     gap:15vw;
     justify-content: center;
     align-items: center;
+}
+#name{
+    font-size: 1.5vw;
 }
 

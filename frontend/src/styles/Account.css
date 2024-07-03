@@ -1,0 +1,19 @@
+#amheading{
+    text-align: center;
+    font-size: 2.5vw;
+}
+#accountdiv{
+    display:flex;
+    
+}
+#aleft{
+    height:85vh;
+    width:30vw;
+    
+}
+#aright{
+    height:85vh;
+    width:70vw;
+    background-color: blueviolet;
+
+}
