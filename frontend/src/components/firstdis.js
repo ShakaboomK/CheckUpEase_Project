@@ -2,8 +2,9 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import {faInstagram,faSquareFacebook,faLinkedin,faTwitter} from '@fortawesome/free-brands-svg-icons'
-function Firstdis()
+function Firstdis(props)
 {
+ 
   return(
     <div>
       <div id="firstdis1">

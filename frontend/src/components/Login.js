@@ -1,8 +1,32 @@
-import React from "react";
+import React,{useState} from "react";
 import "../styles/Login.css";
 import {Link} from "react-router-dom";
-function Login()
+import axios  from "axios";
+function Login(props)
 {
+    const [formdata,setformdata]=useState({});
+    console.log(formdata);
+
+    function handlechange(e){
+        const newdata=Object.assign({},formdata);
+        newdata[e.target.id]=e.target.value;
+        setformdata(newdata);
+
+    }
+    function handlelogin(data){
+        axios.post(`${URL}/login`,data).then(
+            (res)=>{
+                console.log(res);
+            }
+        ).catch(
+            (error)=>{
+                console.log(error);
+            }
+        )
+    }
+        
+
+    
     return(
         <div id="logindiv">
             
@@ -16,11 +40,11 @@ function Login()
                 <div id="lform">
                     <div className="lformfield">
                         <label id="lemail"><strong>Email</strong></label><br></br>
-                        <input type="text"  id="lemailinp"></input><br></br>
+                        <input type="text"  id="lemailinp" onChange={handlechange}></input><br></br>
                     </div>
                     <div className="lformfield">
                         <label id="lpassword"><strong>Password</strong></label><br></br>
-                        <input type="password" id="lpasswordinp"></input>
+                        <input type="password" id="lpasswordinp"onChange={handlechange} ></input>
                     </div>
                     <div id="remembermediv">
                             <input type="checkbox" id="rememberme"></input>
@@ -28,7 +52,10 @@ function Login()
                     </div>
                        
                     <div id="loginbuttondiv">
-                        <button id="loginbutton">Login</button>
+                        <button id="loginbutton" onClick={()=>{
+                            props.pr();
+                            handlelogin(formdata);
+                        }}>Login</button>
                     </div>
                     <div id="redirectr">
                             <h4>Dont have account? <Link to="/register">signup</Link></h4>
@@ -45,4 +72,5 @@ function Login()
         </div>
     )
 }
+
 export default Login;

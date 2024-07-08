@@ -47,7 +47,7 @@
 
     width:40vw;
     height:7vh;
-    border:2px solid black;
+    border:2px solid grey;
     border-radius: 5px;
 }
 #rname,#remail,#rpassword,#rmobilenumber{
@@ -56,11 +56,17 @@
 }
 #registerbutton{
     font-size: 2vw;
-    width:40vw;
+    
+    width:10vw;
     padding:0.5vh;
     margin-top:2vh;
-    border-radius: 2px;
+    border-radius: 20px;
     background-color:rgb(178,219,251);
+    margin-left: 14vw;
+    border:none;
+    
+
+   
 }
 #termsinp{
     margin-top: 5px;

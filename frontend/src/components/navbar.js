@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faUser} from '@fortawesome/free-solid-svg-icons'
+import {faUser,faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 function Navbar(props)
 {
     console.log(props);
@@ -12,7 +12,9 @@ function Navbar(props)
                     <Link to="/"><img className="logo" src="../../screenshot (38) 1.png"></img></Link>
                 </div>
                 <div id="search">
-                    <input type="text" placeholder="search" id="inf"></input>
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    <input type="text" placeholder="search" id="inf" style={{marginLeft:'35px'}}></input>
+                    
 
                 </div>
 

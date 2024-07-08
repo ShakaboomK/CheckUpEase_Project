@@ -3,6 +3,11 @@ body{
     margin-left: 0px;
     margin-right: 0px;
 }
+#topblock{
+    height:2vh;
+    width:100%;
+    background-color: rgb(41,75,103);
+}
 #navbar{
     display:flex;
     flex-direction: row;
@@ -45,11 +50,16 @@ body{
     width:60px;
     
 }
+#search{
+    display:flex;
+    align-items: center;
+    
+}
 
 
 #firstdis1{
    background-color: rgba(188, 232, 232);
-     border:0.5px solid black;
+     border:0.5px solid white;
      background-image: url('../../public/Doctor-visiting-Patient\ 1.png');
      background-repeat:no-repeat;
      background-size:30vw;
@@ -82,7 +92,7 @@ body{
     display:flex;
     flex-direction: row;
     gap:5vw;
-    
+   
     
     /* border: 1px solid black; */
 
@@ -102,8 +112,9 @@ body{
     height:50px;
     width:15%;
     font-size: 1vw;
-    border-radius: 5px;
+    border-radius: 15px;
     color:white;
+    border:none;
 }
 #inf{
      /* outline: none; */
@@ -113,8 +124,14 @@ body{
     border:none;
     height:3vh;
     width:10vw;
+    margin-left:2px;
    
 }
+/* #search{
+    display: flex;
+    justify-content: space-between;
+} */
+
 #firstdis2{
     display:flex;
     flex-direction:column;
@@ -246,14 +263,14 @@ body{
     padding:0% 1%;
     height:70%;
     width:25%;
-    border:2px solid black;
+    /* border:2px solid black; */
     margin:0% 4%;
     font-size: 1vw;
 }
 #firstdis6m{
     height:70%;
     width:25%;
-    border:2px solid black;
+    /* border:2px solid black; */
     margin:0% 4%;
     padding:0% 1%;
     font-size: 1vw;
@@ -261,7 +278,7 @@ body{
 #firstdis6r{
     height:70%;
     width:25%;
-    border:2px solid black;
+    /* border:2px solid black; */
     margin:0% 4%;
     padding:0% 1%;
     font-size: 1vw;
