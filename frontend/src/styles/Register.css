@@ -1,0 +1,79 @@
+#registerdiv{
+    display:flex;
+    
+}
+#rleft{
+    /* background-color: ; */
+   
+    width:50%;
+    /* border:2px solid black; */
+    display:flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+   
+}
+#rcontent{
+    margin-top: 1vh;
+  
+   
+}
+#content h3{
+    font-weight:bolder;
+}
+#rright{
+   
+    width:50%;
+    background-color: rgb(178,219,251);
+
+}
+.loginopt1{
+    font-size: 1.2vw;
+    margin-left: 2vw;
+    border-radius: 1vw;
+    padding:1vh 1vw;
+}
+.loginopt2{
+    font-size: 1.2vw;
+    margin-left: 2vw;
+    border-radius: 1vw;
+    padding:1vh 1vw;
+}
+/* #form{
+    
+} */
+#rnameinp,#remailinp,#rpasswordinp,#rmobilenumberinp{
+
+    width:40vw;
+    height:7vh;
+    border:2px solid grey;
+    border-radius: 5px;
+}
+#rname,#remail,#rpassword,#rmobilenumber{
+   
+    font-size: 1.5vw;
+}
+#registerbutton{
+    font-size: 2vw;
+    
+    width:10vw;
+    padding:0.5vh;
+    margin-top:2vh;
+    border-radius: 20px;
+    background-color:rgb(178,219,251);
+    margin-left: 14vw;
+    border:none;
+    
+
+   
+}
+#termsinp{
+    margin-top: 5px;
+}
+.termsandconditions{
+    margin-top: 2vh;
+} 
+#redirect{
+    text-align: center;
+}
