@@ -14,3 +14,5 @@ app.post('/add-data', async (req, res) => {
         res.status(500).send('Error adding document');
     }
 });
+
+module.exports = app;
