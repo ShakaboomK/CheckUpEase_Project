@@ -1,12 +1,12 @@
 // const { express } = require('express')
 const { app } = require('./server')
 const { db } = require('../models/firebase')
+const { router } = require('../routes/userRoute')
 
 // app.use(express.json())
-const { addUser, getUser } = require('../services/user')
 
-router.post('/submit', addUser)
-router.get('/:id', getUser);
+
+
 
 // app.get('/user-data/:name', async (req, res) => {
 //     try {
@@ -24,4 +24,4 @@ router.get('/:id', getUser);
 //     }
 // });//create a get request using the firebase instance using request parms
 
-module.exports = app;
+module.exports
