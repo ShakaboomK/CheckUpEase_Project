@@ -146,16 +146,29 @@ const loginUser = async (req, res) => {
  * successfully updated, it returns a 200 status with the message 'User profile updated successfully'.
  */
 const updateUserProfile = async (req, res) => {
-    const { userId } = req.body;
-    const userRef = db.collection('users').doc(userId);
+    try {
+        const { userId, ...updateData } = req.body;
 
-    const doc = await userRef.get();
-    if (!doc.exists) {
-        return res.status(404).send('User not found.');
+        if (!userId) {
+            return res.status(400).send('User ID is required.');
+        }
+
+        const userRef = db.collection('users').doc(userId);
+
+        // Optional: Logging to help debug
+        console.log('Updating user profile for userId:', userId);
+
+        const doc = await userRef.get();
+        if (!doc.exists) {
+            return res.status(404).send('User not found.');
+        }
+
+        await userRef.update(updateData);
+        res.status(200).send({ message: 'User profile updated successfully' });
+    } catch (error) {
+        console.error('Error updating user profile:', error);
+        res.status(500).send('Error updating user profile.');
     }
-
-    await userRef.update(req.body);
-    res.status(200).send({ message: 'User profile updated successfully' });
 }
 
 
