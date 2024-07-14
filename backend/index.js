@@ -7,7 +7,7 @@ const cors = require('cors')
 const userRoute = require('./src/routes/userRoute.js')
 
 app.use(cors())
-app.use('/users', userRoute)
+app.use('/user', userRoute)
 
 
 app.listen(8000, () => {
