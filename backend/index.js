@@ -3,7 +3,7 @@ const cors = require('cors')
 
 // const { db } = require('./src/models/firebase.js')
 
-require('./src/controllers/userController.js'); // This will register the /add-data route
+
 const userController = require('./src/routes/userRoute.js')
 
 app.use(cors())

@@ -2,7 +2,7 @@
 const express = require('express')
 
 const router = express.Router();
-const { addUser, getUser } = require('../services/user')
+const { addUser, getUser } = require('../controllers/userController')
 
 router.post('/submit', addUser)
 router.get('/:userName', getUser);

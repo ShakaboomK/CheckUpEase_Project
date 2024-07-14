@@ -1,27 +1,39 @@
-// const { express } = require('express')
-const { app } = require('./server')
-const { db } = require('../models/firebase')
-const { router } = require('../routes/userRoute')
-
-// app.use(express.json())
+const { db } = require('../config/firebase');
 
 
+const addUser = async (req, res) => {
+    try {
+        const user = req.body;
+        const userRef = await db.collection('users').add(user);
+        res.status(201).json({ id: userRef.id });
+    } catch (error) {
+        res.status(500).send('Iternal Server Error, please try again later')
+    }
 
+}
+const getUser = async (req, res) => {
+    try {
+        const prefix = req.params.userName;
+        const endPrefix = prefix + '\uf8ff'; // Firestore's highest possible UTF-8 character
 
-// app.get('/user-data/:name', async (req, res) => {
-//     try {
-//         const userName = req.params.name; // Get the username from the request parameter
-//         const userData = await db.collection('User').where('name', '==', userName).get(); // Query Firestore for the user data
-//         if (userData.empty) {
-//             res.status(404).send(`User not found: ${userName}`);
-//         } else {
-//             const userDataDoc = userData.docs[0];
-//             res.status(200).send(userDataDoc.data()); // Respond with the user data
-//         }
-//     } catch (error) {
-//         console.error('Error getting user data: ', error);
-//         res.status(500).send('Error getting user data');
-//     }
-// });//create a get request using the firebase instance using request parms
+        const userRef = await db.collection('users')
+            .where('name', '>=', prefix)
+            .where('name', '<', endPrefix)
+            .get();
 
-module.exports
+        if (userRef.empty) {
+            res.status(404).send('User not found');
+        } else {
+            let users = [];
+            userRef.forEach(doc => {
+                users.push(doc.data());
+            });
+            res.status(200).json(users);
+        }
+    }
+    catch (error) {
+        res.status(500).send('Server Error')
+    }
+}
+
+module.exports = { getUser, addUser }
