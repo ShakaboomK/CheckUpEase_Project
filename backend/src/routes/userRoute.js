@@ -7,7 +7,7 @@ const { userRegistrationSchema,
     userLoginSchema,
     userProfileUpdateSchema } = require('../models/schemas')
 const { registerUser, loginUser, updateUserProfile, showUserProfile } = require('../controllers/userController');
-const { valid } = require('joi');
+// const { valid } = require('joi');
 
 router.post('/register', validateBody(userRegistrationSchema), registerUser)
 router.post('/login', validateBody(userLoginSchema), loginUser);
