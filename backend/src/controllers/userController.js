@@ -39,7 +39,7 @@
 // module.exports = { getUser, addUser }
 
 const { db } = require('../config/firebase')
-const { bcrypt } = require('bcrypt')
+const bcrypt = require('bcrypt')
 
 
 
