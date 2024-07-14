@@ -4,10 +4,10 @@ const cors = require('cors')
 // const { db } = require('./src/models/firebase.js')
 
 
-const userController = require('./src/routes/userRoute.js')
+const userRoute = require('./src/routes/userRoute.js')
 
 app.use(cors())
-app.use('/users', userController)
+app.use('/users', userRoute)
 
 
 app.listen(8000, () => {
