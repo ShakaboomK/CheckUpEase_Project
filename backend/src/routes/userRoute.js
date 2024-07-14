@@ -14,7 +14,7 @@ const { handlePayment } = require('../controllers/paymentsController')
 
 router.post('/register', validateBody(userRegistrationSchema), registerUser)
 router.post('/login', validateBody(userLoginSchema), loginUser);
-router.put('/update', validateBody(userProfileUpdateSchema), updateUserProfile);
+router.put('/user-profile/update', validateBody(userProfileUpdateSchema), updateUserProfile);
 router.get('/user-profile', showUserProfile);
 router.post('/bookappointment', validateBody(appointmentSchema), bookingAppointment);
 router.get('/srch-diag-cntr', searchDiagnosticCentersByLocation);
