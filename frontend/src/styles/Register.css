@@ -77,3 +77,19 @@
 #redirect{
     text-align: center;
 }
+#choice{
+    height:15vh;
+    margin-top: 10px;
+    width:40vw;
+    /* border:2px solid black; */
+
+}
+#choice input[type="radio"]{
+    height:2vh;
+    width:2vw;
+    margin-left: 115px;
+}
+.lchoice{
+    font-size: 1.5vw;
+
+}
