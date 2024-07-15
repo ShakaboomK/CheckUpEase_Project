@@ -1,4 +1,7 @@
-/**
+
+const { db } = require('../config/firebase')
+const { diagnosticCenterSchema } = require('../models/schemas')
+/*
  * The function searches for diagnostic centers by location and returns the matching results.
  * @param req - The `req` parameter in the `searchDiagnosticCentersByLocation` function is typically an
  * object representing the HTTP request. It contains information about the request made to the server,
@@ -13,7 +16,12 @@
  * centers are found.
  */
 const searchDiagnosticCentersByLocation = async (req, res) => {
-    const { location } = req.query;
+    const { location } = req.query; // Use req.query to get the query parameter
+
+    if (!location) {
+        return res.status(400).send('Location is required.');
+    }
+
     const centersRef = db.collection('diagnosticCenters');
     const snapshot = await centersRef.where('location', '==', location).get();
 
@@ -25,4 +33,38 @@ const searchDiagnosticCentersByLocation = async (req, res) => {
     snapshot.forEach(doc => centers.push({ id: doc.id, ...doc.data() }));
     res.status(200).send(centers);
 }
-module.exports = { searchDiagnosticCentersByLocation }
+
+const registerDiagnosticCenter = async (req, res) => {
+    const { name, location, services, contactInfo } = req.body;
+
+    // Generate a new diagnosticCenterId
+    const diagnosticCenterId = db.collection('diagnosticCenters').doc().id;
+
+    // Create the new diagnostic center object
+    const newDiagnosticCenter = {
+        diagnosticCenterId,
+        name,
+        location,
+        services,
+        contactInfo,
+        appointments: []
+    };
+
+    // Validate the input
+    const { error } = diagnosticCenterSchema.validate(newDiagnosticCenter);
+
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+    }
+
+    try {
+        // Save the new diagnostic center to Firestore
+        await db.collection('diagnosticCenters').doc(diagnosticCenterId).set(newDiagnosticCenter);
+
+        return res.status(201).send({ message: 'Diagnostic center registered successfully', diagnosticCenterId });
+    } catch (error) {
+        console.error('Error registering diagnostic center:', error);
+        return res.status(500).send('Internal Server Error');
+    }
+}
+module.exports = { searchDiagnosticCentersByLocation, registerDiagnosticCenter }
