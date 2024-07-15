@@ -3,6 +3,7 @@ import "../styles/fnc.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Fnc(props) {
     const vhl = ["abc", "bcd", "cde"];
@@ -49,18 +50,20 @@ function Fnc(props) {
                             <div id="rvhdiv" key={index}>
                                 <button className="visitedcentersbuttonl" onClick={()=>{
                                     setmap(val);
-                                    
+
+
                                 }}>{val}</button>
                             </div>
                         ))}
                         </div>
                         <div id="rvhchild1r">
                             <h1 style={{textAlign:"center"}}>{`map of ${map}`}</h1>
+                            <Link to="center"><button className="centerb" >{map}</button> </Link>
                         </div>
                     </div>
                 ) : (
                     <div id="rvhchild2">
-                        <h2 style={{ marginLeft: '1vw', color: 'rgb(79,82,142)' }}>visited centers</h2>
+                        <h2 style={{ marginLeft: '1vw', color: 'rgb(79,82,142)' }}>Recently visited centers</h2>
                         {vhl.map((val, index) => (
                             <div id="rvhdiv" key={index}>
                                 <button className="visitedcentersbutton" >{val}</button>
