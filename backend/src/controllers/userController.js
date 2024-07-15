@@ -40,6 +40,7 @@
 
 const { db } = require('../config/firebase')
 const bcrypt = require('bcrypt')
+const { userProfileUpdateSchema } = require('../models/schemas')
 
 
 
@@ -153,6 +154,12 @@ const updateUserProfile = async (req, res) => {
             return res.status(400).send('User ID is required.');
         }
 
+        // Validate the updateData with Joi
+        const { error } = userProfileUpdateSchema.validate(updateData);
+        if (error) {
+            return res.status(400).send(error.details[0].message);
+        }
+
         const userRef = db.collection('users').doc(userId);
 
         // Optional: Logging to help debug
@@ -188,14 +195,19 @@ const updateUserProfile = async (req, res) => {
  */
 const showUserProfile = async (req, res) => {
     const { userId } = req.body;
-    const userRef = db.collection('users').doc(userId);
-    const doc = await userRef.get();
+    try {
+        const userRef = db.collection('users').doc(userId);
+        const doc = await userRef.get();
 
-    if (!doc.exists) {
-        return res.status(404).send('User not found.');
+        if (!doc.exists) {
+            return res.status(404).send('User not found.');
+        }
+
+        res.status(200).send(doc.data());
+    } catch (error) {
+        console.error('Error fetching user profile:', error);
+        res.status(500).send('Internal Server Error');
     }
-
-    res.status(200).send(doc.data());
 }
 
 module.exports = { registerUser, loginUser, updateUserProfile, showUserProfile }
