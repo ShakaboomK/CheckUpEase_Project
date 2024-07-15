@@ -10,12 +10,15 @@ function Register(props)
 {
    
     const [formdata,setformdata]=useState({});
+    const [selectedvalue,setselectedvalue]=useState("option1");
+
     // console.log(formdata);
+   console.log("isselected",selectedvalue);
     function handleChange(e)
     {
        
        const newdata=Object.assign({},formdata);
-       newdata[e.target.id]=e.target.value;
+       newdata[e.target.name]=e.target.value;
        setformdata(newdata);
 
     }
@@ -37,6 +40,11 @@ function Register(props)
             console.log(error);
         })
     }
+    function handleradio(e){
+        console.log("aa");
+        setselectedvalue(e.target.value);
+
+    }
 
     return(
         <div id="registerdiv">
@@ -46,6 +54,29 @@ function Register(props)
                  <h3 style={{fontSize:'4vh'}}>Get Started Now</h3>
                  <h4 style={{fontSize:'3vh'}}>Enter your credentials <br></br>to access your account </h4>
                 </div>
+                <div id="choice">
+                       <input type="radio"
+                          id="option1" 
+                          name="usertype"
+                          value="option1"
+                         checked={selectedvalue === 'option1'}
+                         onChange={handleradio} 
+                        
+
+                       ></input>
+                       <label for="pat" className="lchoice" >patient</label>
+                       <input type="radio" 
+                       id="option2" 
+                       name="usertype"
+                       value="option2"
+                       checked={selectedvalue === 'option2'}
+                       onChange={handleradio} 
+                       
+                       
+                      
+                       ></input>
+                       <label for="dc" className="lchoice" >Diagno center</label>
+                    </div>
                 <div id="loginopt">
                 <button className="loginopt1">Login with google</button>
                 <button className="loginopt2">Login with apple</button>
@@ -53,19 +84,20 @@ function Register(props)
                 </div>
                 <h3>or</h3>
                 <div id="rform">
+                    
                     <div className="rformfeild">
                     <label id="rname"><strong>Name</strong></label><br></br><br></br>
-                    <input type="text"  id="rnameinp" onChange={handleChange} ></input><br></br><br></br>
+                    <input type="text"  id="rnameinp" onChange={handleChange} name="name" ></input><br></br><br></br>
 
                     </div>
                     <div className="rformfield">
                         <label id="remail"><strong>Email Address</strong></label><br></br><br></br>
-                        <input type="text" id="remailinp" onChange={handleChange}></input><br></br><br></br>
+                        <input type="text" id="remailinp" onChange={handleChange} name="email"></input><br></br><br></br>
 
                     </div>
                     
                     <div className="rformfield">
-                        <label id="rmobilenumber"><strong>Mobile number</strong></label><br></br><br></br>
+                        <label id="rmobilenumber" ><strong>Mobile number</strong></label><br></br><br></br>
                         <PhoneInput 
                           country={'in'}
                           placeholder="Enter your Number"
@@ -82,7 +114,7 @@ function Register(props)
                     {/* <PhoneNumberInput></PhoneNumberInput> */}
                     <div className="rformfield">
                         <label id="rpassword"><strong>password</strong></label><br></br><br></br>
-                        <input type="password"  id="rpasswordinp" onChange={handleChange}></input>
+                        <input type="password"  id="rpasswordinp" onChange={handleChange} name="pass"></input>
 
                     </div>
                     <div className="termsandconditions">

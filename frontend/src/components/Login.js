@@ -1,11 +1,12 @@
 import React,{useState} from "react";
 import "../styles/Login.css";
-import {Link} from "react-router-dom";
+import {Link, Navigate, useNavigate} from "react-router-dom";
 import axios  from "axios";
 function Login(props)
 {
     const [formdata,setformdata]=useState({});
     console.log(formdata);
+    const Navigate=useNavigate();
 
     function handlechange(e){
         const newdata=Object.assign({},formdata);
@@ -17,10 +18,12 @@ function Login(props)
         axios.post(`${URL}/login`,data).then(
             (res)=>{
                 console.log(res);
+                Navigate('/')
             }
         ).catch(
             (error)=>{
                 console.log(error);
+                Navigate('/')
             }
         )
     }
@@ -55,6 +58,7 @@ function Login(props)
                         <button id="loginbutton" onClick={()=>{
                             props.pr();
                             handlelogin(formdata);
+                            
                         }}>Login</button>
                     </div>
                     <div id="redirectr">
