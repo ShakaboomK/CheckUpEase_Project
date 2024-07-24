@@ -10,7 +10,8 @@ import Rcu from "./components/Rcu";
 import Ydr from "./components/ydr";
 import Login from "./components/Login";
 import Account from "./components/Account";
-import { Personalinformation,Familymembers,Billingandpayments,Yourvisits } from "./components/Account";
+import Center from "./components/center";
+import { Personalinformation,Familymembers,Bookings,Results } from "./components/Account";
 function App()
 {
   const [isloggedin,setisloggedin]=useState(false);
@@ -22,11 +23,15 @@ function App()
   return(
     <div>
       <BrowserRouter>
-        <div id="topblock"></div>
+       
         <Navbar isloggedin={isloggedin}></Navbar>
         <Routes>
           <Route path="/" element={<Firstdis  ></Firstdis>}></Route>
-          <Route path="/fnc" element={<Fnc isl={isloggedin}></Fnc>}></Route>
+          <Route path="/fnc" element={<Fnc></Fnc>}>
+            {/* <Route path="center" element={<Center></Center>}></Route> */}
+          </Route>
+          <Route path="/center/:id" element={<Center></Center>}></Route>
+
           <Route path="/pyv" element={<Pyv></Pyv>}></Route>
           <Route path="/ydr" element={<Ydr></Ydr>}></Route>
           <Route path="/rcu" element={<Rcu></Rcu>}></Route>
@@ -35,8 +40,8 @@ function App()
           <Route path="/account" element={<Account pr={setsomething} isl={isloggedin}></Account>}>
              <Route path="personalinformation" element={<Personalinformation></Personalinformation>}></Route>
              <Route path="familymembers" element={<Familymembers></Familymembers>}></Route>
-             <Route path="billingandpayments" element={<Billingandpayments></Billingandpayments>}></Route>
-             <Route path="yourvisits" element={<Yourvisits></Yourvisits>}></Route>
+             <Route path="billingandpayments" element={<Bookings></Bookings>}></Route>
+             <Route path="yourvisits" element={<Results></Results>}></Route>
           </Route>
           
         </Routes>

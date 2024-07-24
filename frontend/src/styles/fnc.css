@@ -1,130 +1,81 @@
-/* #mdivfnc{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-#fmh{
-    font-size: 2vw;
-    text-align: center;
-    color:rgb(79,82,142);
-   
-}
-#hr{
-    width:75vw;
-    padding-left: 100px;
-    
-}
-#locationd{
- /* margin-left: 41vw; */
- display:flex;
- align-items: center;
- justify-content: center;
- 
-
- 
- 
-    
-}
-
-
-#locationinp{
-   
-    border:none;
-    height: 10vh;
-    /* margin-left: 10px; */
-    
-    font-size: 2vw;
-    outline: none;
-    
-    color:rgb(79,82,100);
-    
-}
-#dateinp{
-   
-    border:none;
-    height: 10vh;
-    margin-right: 100px;
-    
-    font-size: 2vw;
-    outline: none;
-   
-    
-    color:rgb(79,82,142);
-    
-
-}
-#testinp{
-    border:none;
-    height: 10vh;
-    /* margin-left: 10px; */
-    
-    font-size: 2vw;
-    outline: none;
-    
-    color:rgb(79,82,100);
-
-}
-#locationinp::placeholder{
-    color:rgb(79,82,142);
-}
-#testinp::placeholder{
-    color:rgb(79,82,142);
-}
-#rvhchild1{
+#fncmaindiv{
     display:flex;
-    flex-direction: row;
-    gap:2vw;
-    align-items: center;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+}
+#fplocationd{
+    /* background-color: aqua; */
+    margin:5% 10%;
+    padding:0px 20px;
+    border:1px solid black;
+    padding:10px 10px;
+    height:10vh;
+    padding-top: 20px;
+    background-color: rgb(226,241,253);
+    border-radius: 20px;
+    border:none;
+
+    
+}
+#flocationd{
+    display:flex;
     justify-content: center;
-}
-#rvhchild1l{
-    width:30vw;
-    
-    
-  
+    align-items: center;
 
-}
-#rvhchild1r{
+    /* background-color: blueviolet; */
     
-    width:50vw;
-    border:2px solid gray;
-    background-color:rgb(217,217,217);
-    height:50vh;
-    border-radius: 10px;
-
-    
-
-
 }
-#rvhchild2{
-    margin-left: 35vw;
-}
-#rvhchild2
-.visitedcentersbutton{
-    
-    width:30vw;
-    height: 8vh;
-    margin-top: 5vh;
-    border:0.5px solid gray;
-    border-radius: 20px;
-    font-size: 1.5vw;
-
-}
-.visitedcentersbuttonl{
-  
-    height:8vh;
+#fdateinp,#flocationinp,#ftestinp{
+    /* border:1px solid black;  */
+    border: none;
     width:15vw;
-    margin-top: 5vh;
-    border:0.5px solid gray;
-    border-radius: 20px;
-    font-size: 1.5vw;
-   
-    
+    height: 8vh;
+    border-radius: 10px;
+    margin-left: 5px;
+    outline:none;
+    background-color:white ;
+    font-size: 2.5vh;
+
 }
-#locsub{
+#fdateinp::placeholder,#flocationinp::placeholder,#ftestinp::placeholder{
+    font-weight: bolder;
+    color:rgb(79,82,142);
+}
+#flocsub{
+    margin-left: 10px;
+    background-color:cornflowerblue;
     height:5vh;
     width:7vw;
-    background-color: rgb(79,82,142);
     border-radius: 10px;
-    color:White;
+}
+.cdb{
+    background-color: rgb(226,241,253);
+    width:30vw;
+    height:10vh;
+    margin-top: 3vh;
+    border-radius: 10px;
+    border:none;
+    text-align: left;
+}
+.hinb{
+    margin-left: 50px;
+
+}
+#allcentersdetails{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+#allcentersdetailsleft{
+    display:flex;
+    flex-direction: column;
+    width:30vw;
+}
+#allcentersdetailsright{
+   background-color: burlywood;
+   height:60vh;
+   width:30vw;
+    
 }
