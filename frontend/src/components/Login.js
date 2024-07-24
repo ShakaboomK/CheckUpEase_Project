@@ -5,16 +5,18 @@ import axios  from "axios";
 function Login(props)
 {
     const [formdata,setformdata]=useState({});
+    const [error,setrerror]=useState(false);
     console.log(formdata);
     const Navigate=useNavigate();
 
     function handlechange(e){
         const newdata=Object.assign({},formdata);
-        newdata[e.target.id]=e.target.value;
+        newdata[e.target.name]=e.target.value;
         setformdata(newdata);
 
     }
     function handlelogin(data){
+        console.log(data);
         axios.post(`${URL}/login`,data).then(
             (res)=>{
                 console.log(res);
@@ -22,8 +24,11 @@ function Login(props)
             }
         ).catch(
             (error)=>{
+
+                setrerror(true);
+
                 console.log(error);
-                Navigate('/')
+                
             }
         )
     }
@@ -43,11 +48,11 @@ function Login(props)
                 <div id="lform">
                     <div className="lformfield">
                         <label id="lemail"><strong>Email</strong></label><br></br>
-                        <input type="text"  id="lemailinp" onChange={handlechange}></input><br></br>
+                        <input type="text"  id="lemailinp" onChange={handlechange} name="emailid"></input><br></br>
                     </div>
                     <div className="lformfield">
                         <label id="lpassword"><strong>Password</strong></label><br></br>
-                        <input type="password" id="lpasswordinp"onChange={handlechange} ></input>
+                        <input type="password" id="lpasswordinp"onChange={handlechange} name="password"></input>
                     </div>
                     <div id="remembermediv">
                             <input type="checkbox" id="rememberme"></input>
@@ -61,6 +66,7 @@ function Login(props)
                             
                         }}>Login</button>
                     </div>
+                    {error?(<div id="err" style={{marginLeft:'14vw',marginTop:'2vh',color:'red'}}>somethins is wrong</div>):(<div id="perfect" style={{marginLeft:'14vw',marginTop:'2vh',color:'green'}}>everything is correct</div>)}
                     <div id="redirectr">
                             <h4>Dont have account? <Link to="/register">signup</Link></h4>
                            

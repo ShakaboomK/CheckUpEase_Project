@@ -12,8 +12,8 @@ function Register(props)
     const [formdata,setformdata]=useState({});
     const [selectedvalue,setselectedvalue]=useState("option1");
 
-    // console.log(formdata);
-   console.log("isselected",selectedvalue);
+    console.log(formdata);
+//    console.log("isselected",selectedvalue);
     function handleChange(e)
     {
        
@@ -26,7 +26,7 @@ function Register(props)
     {
        
        const newdata=Object.assign({},formdata);
-       newdata['rmobilenumberinp']=v;
+       newdata['mobileno']=v;
        setformdata(newdata);
 
     }
@@ -37,6 +37,7 @@ function Register(props)
                 console.log(res);
             }
         ).catch((error)=>{
+            console.log("inerror....");
             console.log(error);
         })
     }
@@ -102,7 +103,9 @@ function Register(props)
                           country={'in'}
                           placeholder="Enter your Number"
                           inputProps={{
-                            id:"rmobilenumberinp"
+                            id:"rmobilenumberinp",
+                            name:"mobileno"
+
                           }
                           
 
@@ -114,7 +117,7 @@ function Register(props)
                     {/* <PhoneNumberInput></PhoneNumberInput> */}
                     <div className="rformfield">
                         <label id="rpassword"><strong>password</strong></label><br></br><br></br>
-                        <input type="password"  id="rpasswordinp" onChange={handleChange} name="pass"></input>
+                        <input type="password"  id="rpasswordinp" onChange={handleChange} name="password"></input>
 
                     </div>
                     <div className="termsandconditions">
