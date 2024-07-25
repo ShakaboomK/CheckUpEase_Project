@@ -196,4 +196,4 @@ const registerDiagnosticCenter = async (req, res) => {
         return res.status(500).send('Internal Server Error');
     }
 }
-module.exports = { searchDiagnosticCentersByLocation, registerDiagnosticCenter, searchDiagnosticCenters, diagnosticCenterDetails, createSlots }
+module.exports = { registerDiagnosticCenter, searchDiagnosticCenters, diagnosticCenterDetails, createSlots }
