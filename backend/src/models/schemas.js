@@ -1,3 +1,7 @@
+/* `const Joi = require('joi');` is importing the Joi library into the JavaScript file. Joi is a
+popular library used for data validation in JavaScript applications. By requiring 'joi', the code
+gains access to the functionality provided by the Joi library, which includes defining schemas for
+data validation and performing validation checks on data objects based on those schemas. */
 const Joi = require('joi');
 
 // User registration schema
@@ -26,11 +30,17 @@ const userLoginSchema = Joi.object({
 specifies the structure and validation rules for the data that should be provided when a user is
 updating their profile information. Here's a breakdown of what each field in the schema represents: */
 const userProfileUpdateSchema = Joi.object({
+    firstName: Joi.string().optional(),
+    middleName: Joi.string().optional(),
+    lastName: Joi.string().optional(),
+    age: Joi.number().integer().min(18).optional(),
     gender: Joi.string().valid('Male', 'Female', 'Other').optional(),
-    bloodGroup: Joi.string().valid('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-').optional(),
+    bloodGroup: Joi.string().valid('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-').required(),
     familyMembers: Joi.array().items(
         Joi.object({
-            name: Joi.string().required(),
+            firstName: Joi.string().required(),
+            lastName: Joi.string().required(),
+            middleName: Joi.string().required(),
             age: Joi.number().integer().min(0).required(),
             bloodGroup: Joi.string().valid('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-').required(),
             gender: Joi.string().valid('Male', 'Female', 'Other').required(),
@@ -43,7 +53,8 @@ const userProfileUpdateSchema = Joi.object({
                 })
             ).optional()
         })
-    ).max(5).optional()
+    ).max(5).optional(),
+    address: Joi.string().required()
 });
 
 // Diagnostic Center schema
