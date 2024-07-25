@@ -126,7 +126,7 @@ const loginUser = async (req, res) => {
     // Simulating JWT token generation
     /* The line `const token = `fake-jwt-token-for- ${userRef.id}`;` is creating a simulated
     JWT (JSON Web Token) for the user who successfully logs in. */
-    const token = `fake-jwt-token-for-${username} ${userDoc.id}`;
+    const token = userDoc.id;
     res.status(200).send({ message: 'Login successful', token });
 }
 
