@@ -10,7 +10,7 @@ const { userRegistrationSchema,
 const { registerUser, loginUser, updateUserProfile, showUserProfile } = require('../controllers/userController');
 // const { valid } = require('joi');
 const { bookingAppointment } = require('../controllers/appointmentController')
-const { searchDiagnosticCentersByLocation, searcDiagnosticCenter, diagnosticCenterDetails } = require('../controllers/diagnosticsCenter')
+const { searchDiagnosticCenters, diagnosticCenterDetails } = require('../controllers/diagnosticsCenter')
 const { handlePayment } = require('../controllers/paymentsController')
 
 router.post('/register', validateBody(userRegistrationSchema), registerUser)
@@ -20,7 +20,7 @@ router.get('/user-profile', showUserProfile);
 router.post('/bookappointment', validateBody(appointmentSchema), bookingAppointment);
 router.get('/srch-diag-cntr', searchDiagnosticCentersByLocation);
 router.post('/payments', validateBody(paymentSchema), handlePayment);
-router.post('/searchCenter', searcDiagnosticCenter)
+router.post('/searchCenter', searchDiagnosticCenters)
 router.get('searchCenter/centerDetails/: centerId /: date', diagnosticCenterDetails)
 router.get('/test', async (req, res) => {
     try {
