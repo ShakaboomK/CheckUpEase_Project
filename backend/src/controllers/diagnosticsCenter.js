@@ -1,6 +1,9 @@
 
 const { db } = require('../config/firebase')
+const { FieldValue } = require('firebase-admin/firestore')
 const { diagnosticCenterSchema } = require('../models/schemas')
+
+
 /*
  * The function searches for diagnostic centers by location and returns the matching results.
  * @param req - The `req` parameter in the `searchDiagnosticCentersByLocation` function is typically an
@@ -37,8 +40,8 @@ const createSlots = async (req, res) => {
                     date: dateStr,
                     time,
                     available: true,
-                    createdAt: admin.firestore.FieldValue.serverTimestamp(),
-                    updatedAt: admin.firestore.FieldValue.serverTimestamp()
+                    createdAt: FieldValue.serverTimestamp(),
+                    updatedAt: FieldValue.serverTimestamp()
                 });
             });
 
@@ -116,7 +119,7 @@ const searchDiagnosticCenters = async (req, res) => {
  * to send HTTP responses with data or error messages. In the provided code snippet, `res` is used to
  */
 const diagnosticCenterDetails = async (req, res) => {
-    const { centerId, date } = req.params;
+    const { centerId, date } = req.body;
     try {
         // Fetch center details
         const centerRef = await db.collection('diagnosticCenters').doc(centerId).get();
@@ -128,7 +131,7 @@ const diagnosticCenterDetails = async (req, res) => {
 
         // Fetch available slots for the selected date
         const slotsRef = await db.collection('slots')
-            .where('diagnosticCenterId', '==', centerId)
+            .where('centerId', '==', centerId)
             .where('date', '==', date)
             .where('available', '==', true)
             .get();

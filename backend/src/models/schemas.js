@@ -65,6 +65,7 @@ const diagnosticCenterSchema = Joi.object({
     diagnosticCenterId: Joi.string().required(),
     name: Joi.string().required(),
     location: Joi.string().required(),
+    address: Joi.string().required(),
     services: Joi.array().items(Joi.string()).required(),
     contactInfo: Joi.string().required(),
     appointments: Joi.array().items(Joi.string()).optional()

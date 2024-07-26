@@ -18,10 +18,10 @@ router.post('/login', validateBody(userLoginSchema), loginUser);
 router.put('/user-profile/update', updateUserProfile);
 router.get('/user-profile', showUserProfile);
 router.post('/bookappointment', validateBody(appointmentSchema), bookingAppointment);
-router.get('/srch-diag-cntr', searchDiagnosticCentersByLocation);
+// router.get('/srch-diag-cntr', searchDiagnosticCentersByLocation);
 router.post('/payments', validateBody(paymentSchema), handlePayment);
 router.post('/searchCenter', searchDiagnosticCenters)
-router.get('searchCenter/centerDetails/: centerId /: date', diagnosticCenterDetails)
+router.get('/searchCenter/centerDetails', diagnosticCenterDetails)
 router.get('/test', async (req, res) => {
     try {
         const testDoc = await db.collection('test').doc('testDoc').get();
