@@ -9,7 +9,7 @@ const userRegistrationSchema = Joi.object({
     password: Joi.string().required(),
     mobileNumber: Joi.string().pattern(/^[0-9]{10}$/).required(),
     email: Joi.string().email().required(),
-    age: Joi.number().integer().min(0).required()
+    age: Joi.number().integer().min(0)
 });
 
 // User login schema

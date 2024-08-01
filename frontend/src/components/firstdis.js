@@ -1,12 +1,46 @@
-import React from "react";
+import React,{useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import {faInstagram,faSquareFacebook,faLinkedin,faTwitter} from '@fortawesome/free-brands-svg-icons'
 import { faCopyright } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate, useNavigation } from "react-router-dom";
+import axios from "axios";
 
 function Firstdis(props)
 {
+ 
+  const [locationinp,setlocationinp]=useState({});
+  const [nearestlocations,setnearestlocations]=useState([]);
+  const Navigate=useNavigate();
+ 
+
+  
+ 
+  
+    function handlelocinpchange(e) {
+      // console.log("here");
+      const { name, value } = e.target;
+      setlocationinp(prevState => ({
+        ...prevState,
+        [name]: value
+      }));
+    }
+  
+  // function handlesearchloc(data)
+  // {
+  //   // axios.get(`${URL}`,data).then(
+  //   //   (res)=>{
+  //   //     console.log(data);
+  //   //     setnearestlocations(res);
+  //   //   }
+  //   // ).catch(
+  //   //   (err)=>{
+  //   //     console.log(err);
+  //   //   }
+  //   // )
+  //   Navigate('/fnc')
+    
+  // } 
  
   return(
     <div>
@@ -31,16 +65,26 @@ function Firstdis(props)
       <div id="firstdisadd1">
       <div id="locationd">
                 {/* <div id="dateinpdiv"></div> */}
-                <input type="date" id="dateinp"></input>
-                <input type="text" placeholder="Enter Your Location" id="locationinp" onChange={(e)=>{
-
-                }} ></input>
+                <input type="date" id="dateinp" name="date"
+                 onChange={(e)=>{
+                  handlelocinpchange(e);}}
+                  ></input>
+                <input type="text" placeholder="Enter Your Location" id="locationinp" 
+                 onChange={(e)=>{
+                  handlelocinpchange(e);}}
+               name="location"></input>
               
-                <input type="text" id="testinp" placeholder="enter the test you need"></input>
+                <input type="text" id="testinp" placeholder="enter the test you need" name="test"
+                 onChange={(e)=>{
+                  handlelocinpchange(e);}}
+                  ></input>
 
-                <Link to="/fnc"><button id="locsub" onClick={() => {}}>Search</button></Link>
+                <Link to= "/fnc" state={locationinp}><button id="locsub" >Search</button></Link>
+               
+                
             </div>
       </div>
+      
      
       <div id="firstdis2">
         <div id="b1"><h1>Get Tested: Easy Online Booking For Quick Results </h1></div>

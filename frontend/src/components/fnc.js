@@ -1,8 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import "../styles/fnc.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 function Fnc(props) {
     const centerdetails = [
@@ -13,15 +14,44 @@ function Fnc(props) {
         { id: "5", centerName: "center5", distance: "6km", rating: "3.8" },
         { id: "6", centerName: "center6", distance: "6km", rating: "3.8" }
     ];
+    const location=useLocation();
+    const state=location.state;
+    // const { location: searchLocation, date, test } = state || {};
+    console.log("location in fnc",state.location);
+    const [locationv,setlocationv]=useState(state.location);
+    const [datev,setdatev]=useState(state.date);
+    const [testv,settestv]=useState(state.test);
+    const [formdata,setformdata]=useState({
+        date:datev,
+        location:locationv,
+        test:testv
+     
+    });
+    console.log(`date: ${datev}`);
+    console.log(`location: ${locationv}`);
+    console.log(`test: ${testv}`);
+    console.log('formdata:',formdata);
+
+   
+
 
     return (
         <div id="fncmaindiv">
             <div id="fplocationd">
                 <div id="flocationd">
-                    <input type="date" id="fdateinp"></input>
-                    <input type="text" placeholder="Enter Your Location" id="flocationinp"></input>
-                    <input type="text" id="ftestinp" placeholder="Enter the test you need"></input>
-                    <Link to="/fnc">
+                    <input type="date" id="fdateinp" value={datev} name="date" onChange={(e)=>{
+                        setdatev(e.target.value);
+                        formdata[e.target.name]=e.target.value;
+                    }} />
+                    <input type="text" placeholder="Enter Your Location" id="flocationinp" value={locationv} name="location" onChange={(e)=>{
+                        setlocationv(e.target.value);
+                        formdata[e.target.name]=e.target.value;
+                    }} />
+                    <input type="text" id="ftestinp" placeholder="Enter the test you need" value={testv} name="test" onChange={(e)=>{
+                        settestv(e.target.value);
+                        formdata[e.target.name]=e.target.value;
+                    }} />
+                    <Link to="/fnc" state={formdata}> 
                         <button id="flocsub" onClick={() => {}}>Search</button>
                     </Link>
                 </div>
