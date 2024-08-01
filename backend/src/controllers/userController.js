@@ -56,7 +56,7 @@ const { userProfileUpdateSchema } = require('../models/schemas')
  * status to 201 (Created) and sends a JSON response with a message indicating that the user was
  */
 const registerUser = async (req, res) => {
-    const { username, password, mobileNumber, email, age } = req.body;
+    const { username, password, mobileNumber, email } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const userRef = db.collection('users').doc();
@@ -67,7 +67,6 @@ const registerUser = async (req, res) => {
         password: hashedPassword,
         mobileNumber,
         email,
-        age,
         gender: null,
         bloodGroup: null,
         familyMembers: [],
@@ -123,9 +122,7 @@ const loginUser = async (req, res) => {
         return res.status(401).send('Invalid username or password.');
     }
 
-    // Simulating JWT token generation
-    /* The line `const token = `fake-jwt-token-for- ${userRef.id}`;` is creating a simulated
-    JWT (JSON Web Token) for the user who successfully logs in. */
+
     const token = userDoc.id;
     res.status(200).send({ message: 'Login successful', token });
 }

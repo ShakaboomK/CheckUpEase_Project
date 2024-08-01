@@ -5,23 +5,27 @@
 }
 #accountdiv{
     display:flex;
+    gap:10px;
     
 }
 #aleft{
     /* height:85vh; */
-    width:30vw;
+    width:20vw;
     display:flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
     gap:3vh;
-    
+    background-color: rgb(241,241,241);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     
     
 }
 #aright{
     /* height:85vh; */
     width:60vw;
+    /* border:2px solid black; */
 }
 #usermaininfo{
     display:flex;
@@ -38,20 +42,57 @@
 }
 
 .arighttdiv{
-    height:10vh;
-    width:100%;
-    /* border:2px solid black; */
+    height:20vh;
+    width:100%; 
+    text-align: center;
+     /* border:2px solid black; */
 
 }
 .arightbdiv{
-    padding-top:5vh;
+    /* padding-top:5vh;
     height:60vh;
-    width:80%;
-    /* border:2px solid black; */
+    width:80%; */
+   /* border:2px solid black;
     margin-top: 10vh;
     background-color: rgb(217,217,217);
-    border-radius: 10px;
+    border-radius: 10px; */
+    margin-top:5vh;
+    margin-left:5vw;
+    /* border:2px solid black; */
 
+
+}
+#tnameinp,#dbginp,#eaddress1{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+
+}
+#eaddress2{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+
+
+}
+#fninp,#mninp,#dbinp,#genderinp,#addressinp,#countryinp{
+    width:20vw;
+    height:5vh;
+    border-radius: 5px;
+}
+#stateinp,#cityinp,#pcinp{
+    width:15vw;
+    height:5vh;
+    border-radius: 5px;
+
+}
+#lnameinp,#passwordinp,#mnoinp{
+    width:42vw;
+    height:5vh;
+    border-radius: 5px;
+}
+#lnameinpdiv,#passwordinpdiv,#mnoinpdiv{
+    margin-top: 30px;
 }
 #sobutton{
     font-size: 1.2vw;
@@ -63,12 +104,13 @@
 }
 #empty{
     height:60vh;
-    width:80%;
+    text-align: center;
+    
     /* border:2px solid black; */
    
 
-    background-color: rgb(217,217,217);
-    border-radius: 10px;
+    
+   
 
     
 }
@@ -81,7 +123,7 @@
 }
 
 
-#usermoreinfo a.active-link h2 {
+#usermoreinfo a.active-link {
     color: green; /* Change the color to green when the link is active */
 }
 #familybuttons{
@@ -97,4 +139,60 @@
     border-radius: 10px;
     background-color: white;
     color:black;
+}
+#editprofile{
+    background-color: rgb(226,241,253);
+    margin:7vh 13vw;
+    height:5vh;
+    border-radius:5px;
+    width:20vw;
+}
+#addmember{
+    background-color: rgb(226,241,253);
+    margin:7vh 0vw;
+    height:5vh;
+    border-radius:5px;
+    width:20vw;
+
+}
+#bna{
+    background-color: rgb(226,241,253);
+    margin-left: 40vw;
+    width:12vw;
+    height:5vh;
+    border-radius: 5px;
+
+}
+#fip{
+    margin-left: 5px;
+}
+#bkstablediv{
+    background-color:rgb(226,241,253);
+    padding:30px 30px;
+    margin-top: 30px;
+}
+#bkstable{
+    /* border:2px solid black; */
+    margin-top: 10px;
+    width:30vw;
+
+}
+
+#bkstable th{
+    height:10vh;
+
+
+   
+}
+#bkstable td{
+    text-align: center;
+    background-color: white;
+    border:1px solid grey;
+    border-radius: 5px;
+    height:5vh;
+
+}
+
+#signout{
+   margin-right: 100px;
 }

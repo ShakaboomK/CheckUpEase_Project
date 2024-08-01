@@ -10,14 +10,18 @@ function Register(props)
 {
    
     const [formdata,setformdata]=useState({});
+    const [issuccess,setissuccess]=useState("");
     const [selectedvalue,setselectedvalue]=useState("option1");
+    const [errortext,seterrortext]=useState("");
+    const URL="http://localhost:8000/user";
 
-    // console.log(formdata);
-   console.log("isselected",selectedvalue);
+    console.log(formdata);
+//    console.log("isselected",selectedvalue);
     function handleChange(e)
     {
        
        const newdata=Object.assign({},formdata);
+       
        newdata[e.target.name]=e.target.value;
        setformdata(newdata);
 
@@ -26,7 +30,7 @@ function Register(props)
     {
        
        const newdata=Object.assign({},formdata);
-       newdata['rmobilenumberinp']=v;
+       newdata['mobileNumber']=v;
        setformdata(newdata);
 
     }
@@ -34,9 +38,16 @@ function Register(props)
         console.log(data);
         axios.post(`${URL}/register`,formdata).then((
             res)=>{
+                setissuccess(res.data.message);
+                seterrortext("");
                 console.log(res);
+
             }
         ).catch((error)=>{
+            console.log("inerror....");
+            setissuccess("");
+            seterrortext(error.response.data);
+
             console.log(error);
         })
     }
@@ -86,8 +97,8 @@ function Register(props)
                 <div id="rform">
                     
                     <div className="rformfeild">
-                    <label id="rname"><strong>Name</strong></label><br></br><br></br>
-                    <input type="text"  id="rnameinp" onChange={handleChange} name="name" ></input><br></br><br></br>
+                    <label id="rname"><strong>username</strong></label><br></br><br></br>
+                    <input type="text"  id="rnameinp" onChange={handleChange} name="username" ></input><br></br><br></br>
 
                     </div>
                     <div className="rformfield">
@@ -102,7 +113,9 @@ function Register(props)
                           country={'in'}
                           placeholder="Enter your Number"
                           inputProps={{
-                            id:"rmobilenumberinp"
+                            id:"rmobilenumberinp",
+                            name:"mobileno"
+
                           }
                           
 
@@ -114,7 +127,7 @@ function Register(props)
                     {/* <PhoneNumberInput></PhoneNumberInput> */}
                     <div className="rformfield">
                         <label id="rpassword"><strong>password</strong></label><br></br><br></br>
-                        <input type="password"  id="rpasswordinp" onChange={handleChange} name="pass"></input>
+                        <input type="password"  id="rpasswordinp" onChange={handleChange} name="password"></input>
 
                     </div>
                     <div className="termsandconditions">
@@ -129,6 +142,8 @@ function Register(props)
                     <button id="registerbutton" onClick={()=>{
                         onsubmit(formdata);
                     }}>Register</button>
+                    <div  style={{marginLeft:'14vw',marginTop:'2vh',color:'red'}}>{errortext}</div>
+                    <div style={{marginLeft:'14vw',marginTop:'2vh',color:'green'}}>{issuccess}</div>
                     <div id="redirect">
                         <p>Have an account?<Link to="/login">sign in</Link></p>
                     </div>

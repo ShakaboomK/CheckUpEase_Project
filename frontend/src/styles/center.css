@@ -1,0 +1,131 @@
+#centermaindiv{
+    display:flex;
+    flex-direction: column;
+
+}
+#csd1{
+    display:flex;
+    height:220px;
+    margin: 5vh 5vw;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+    /* border:2px solid black; */
+}
+#csd1r{
+    width:50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#cimg{
+    width:5vw;
+    height:12vh;
+    border:1px solid black;
+    border-radius: 5px;
+}
+#csd2{
+    text-align:center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5vh 5vw;
+    border-bottom: 1px solid black;
+   
+}
+#csd2s1{
+    height:50vh;
+    width:50vw;
+    background-color: blanchedalmond;
+    margin-bottom: 2vh;
+}
+#csd3{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#csd3s1{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.centerinp{
+    margin-top:20px;
+    width:30vw;
+    height:5vh;
+    border-radius:10px;
+}
+.centerinp::placeholder{
+    font-weight: bold;
+}
+#vwav{
+    width:30vw;
+    height:5vh;
+    margin-top:10px;
+    background-color: rgb(178,219,251);
+    border-radius:10px;
+}
+#csd4{
+    width:70vw;
+    height:30vh;
+    border:2px solid black;
+    margin-top:20px;
+}
+#csd5{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+#csd5s1{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+#csd5ss1{
+    height:15vh;
+    width:15vh;
+    border:2px solid black;
+    border-radius: 50%;
+    text-align: center;
+    
+}
+#csd6{
+    display:flex;
+    height:389px;
+    width:80vw;
+    /* border:2px solid black; */
+    margin:1vw 2vw;
+    padding-top:5%;
+    color:rgb(152,144,144);
+}
+#csd6l{
+   
+    /* color:rgb(152,144,144);  */
+    padding:0% 1%;
+    height:70%;
+    width:25%;
+    /* border:2px solid black; */
+    margin:0% 4%;
+    font-size: 1vw;
+}
+#csd6m{
+    height:70%;
+    width:25%;
+    /* border:2px solid black; */
+    margin:0% 4%;
+    padding:0% 1%;
+    font-size: 1vw;
+}
+#csd6r{
+    height:70%;
+    width:25%;
+    /* border:2px solid black; */
+    margin:0% 4%;
+    padding:0% 1%;
+    font-size: 1vw;
+}

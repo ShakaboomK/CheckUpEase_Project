@@ -1,31 +1,91 @@
-import React from "react";
+import React,{useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import {faInstagram,faSquareFacebook,faLinkedin,faTwitter} from '@fortawesome/free-brands-svg-icons'
+import { faCopyright } from "@fortawesome/free-solid-svg-icons";
+import { Link, Navigate, useLocation, useNavigate, useNavigation } from "react-router-dom";
+import axios from "axios";
+
 function Firstdis(props)
 {
+ 
+  const [locationinp,setlocationinp]=useState({});
+  const [nearestlocations,setnearestlocations]=useState([]);
+  const Navigate=useNavigate();
+ 
+
+  
+ 
+  
+    function handlelocinpchange(e) {
+      // console.log("here");
+      const { name, value } = e.target;
+      setlocationinp(prevState => ({
+        ...prevState,
+        [name]: value
+      }));
+    }
+  
+  // function handlesearchloc(data)
+  // {
+  //   // axios.get(`${URL}`,data).then(
+  //   //   (res)=>{
+  //   //     console.log(data);
+  //   //     setnearestlocations(res);
+  //   //   }
+  //   // ).catch(
+  //   //   (err)=>{
+  //   //     console.log(err);
+  //   //   }
+  //   // )
+  //   Navigate('/fnc')
+    
+  // } 
  
   return(
     <div>
       <div id="firstdis1">
           
-          <div id="content">
-              <h1>Now Diagnostic Center <br></br> At Your Door </h1>
-              <br></br>
-              <br></br>
-              <h1>No More Waiting</h1>
-          </div> 
         
-          <div id="buttons">
-              <button>Book Appointment</button>
-              <button>Need Suggestion!!</button>
+          <div id="content">
+              <h1>Find The Best Diagnosis Services Near You</h1>
+          </div> 
+          <div id="img">
+            
 
           </div>
+        
+        
       
 
 
 
       </div>
+      <hr id="hrl"></hr>
+      <div id="firstdisadd1">
+      <div id="locationd">
+                {/* <div id="dateinpdiv"></div> */}
+                <input type="date" id="dateinp" name="date"
+                 onChange={(e)=>{
+                  handlelocinpchange(e);}}
+                  ></input>
+                <input type="text" placeholder="Enter Your Location" id="locationinp" 
+                 onChange={(e)=>{
+                  handlelocinpchange(e);}}
+               name="location"></input>
+              
+                <input type="text" id="testinp" placeholder="enter the test you need" name="test"
+                 onChange={(e)=>{
+                  handlelocinpchange(e);}}
+                  ></input>
+
+                <Link to= "/fnc" state={locationinp}><button id="locsub" >Search</button></Link>
+               
+                
+            </div>
+      </div>
+      
+     
       <div id="firstdis2">
         <div id="b1"><h1>Get Tested: Easy Online Booking For Quick Results </h1></div>
         <div id="b2">
@@ -38,8 +98,22 @@ function Firstdis(props)
 
 
       </div>
-      <div id="firstdis3"> </div>
-      <div id="firstdis4"> 
+      <div id="firstdis3">
+        <div id="three">
+          <img src="/Group 26.png"></img>
+          <img src="/Group 27.png"></img>
+          <img src="/Group 28.png"></img>
+          
+        </div>
+        <div id="two">
+          <img src="/Group 29.png"></img>
+          <img src="/Group 30.png"></img>
+          
+          
+        </div>
+
+         </div>
+      {/* <div id="firstdis4"> 
         <div id="firstdis4l">
           <h1>Tired of jugling appointments and lab visits</h1>
           <h2>We Get it Introducing <span id="span"> Diagnostic Docs</span></h2>
@@ -74,7 +148,7 @@ function Firstdis(props)
 
 
       
-      </div>
+      </div> */}
       <div id="firstdis6">
         <div id="firstdis6l">
           <h2>Customer Feedback</h2>
@@ -118,14 +192,16 @@ function Firstdis(props)
             {/* <FontAwesomeIcon icon={} /> */}
             {/* <FontAwesomeIcon icon="fa-brands fa-square-facebook" /> */}
             <div id="icons">
-              <FontAwesomeIcon icon={faSquareFacebook} size="2x" />
-              <FontAwesomeIcon icon={faInstagram} size="2x" />
-              <FontAwesomeIcon icon={faLinkedin}  size="2x" />
-              <FontAwesomeIcon icon={faTwitter} size="2x" />
+              {/* <FontAwesomeIcon icon={faSquareFacebook} size="2x" /> */}
+               <img src="/Facebook.png"></img>
+               <img src="/Instagram.png"></img>
+               <img src="/Linkedin.png"></img>
+               <img src="/Twitter.png"></img>
+               
 
             </div>
            
-            <h3>customer service : +910000000000</h3>
+           
            
 
 
@@ -134,9 +210,11 @@ function Firstdis(props)
 
         </div> 
        <div id="firstdis7b">
-        <h3>nextcare2022</h3>
+       
+        <h3> nextcare2022</h3>
         <h3>Term of use</h3>
         <h3>Privacy Policy</h3>
+        <h3>Customer Service +9100000000</h3>
         
 
 
