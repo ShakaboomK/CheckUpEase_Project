@@ -11,7 +11,7 @@ registering. Here's a breakdown of what each field in the schema represents: */
 const userRegistrationSchema = Joi.object({
     username: Joi.string().required(),
     password: Joi.string().required(),
-    mobileNumber: Joi.string().pattern(/^[0-9]{10}$/).required(),
+    mobileNumber: Joi.string().pattern(/^\d{10}$/).required(),
     email: Joi.string().email().required(),
     age: Joi.number().integer().min(0)
 });
