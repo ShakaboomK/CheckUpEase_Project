@@ -1,0 +1,81 @@
+#fncmaindiv{
+    display:flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+}
+#fplocationd{
+    /* background-color: aqua; */
+    margin:5% 10%;
+    padding:0px 20px;
+    border:1px solid black;
+    padding:10px 10px;
+    height:10vh;
+    padding-top: 20px;
+    background-color: rgb(226,241,253);
+    border-radius: 20px;
+    border:none;
+
+    
+}
+#flocationd{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    /* background-color: blueviolet; */
+    
+}
+#fdateinp,#flocationinp,#ftestinp{
+    /* border:1px solid black;  */
+    border: none;
+    width:15vw;
+    height: 8vh;
+    border-radius: 10px;
+    margin-left: 5px;
+    outline:none;
+    background-color:white ;
+    font-size: 2.5vh;
+
+}
+#fdateinp::placeholder,#flocationinp::placeholder,#ftestinp::placeholder{
+    font-weight: bolder;
+    color:rgb(79,82,142);
+}
+#flocsub{
+    margin-left: 10px;
+    background-color:cornflowerblue;
+    height:5vh;
+    width:7vw;
+    border-radius: 10px;
+}
+.cdb{
+    background-color: rgb(226,241,253);
+    width:30vw;
+    height:10vh;
+    margin-top: 3vh;
+    border-radius: 10px;
+    border:none;
+    text-align: left;
+}
+.hinb{
+    margin-left: 50px;
+
+}
+#allcentersdetails{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+#allcentersdetailsleft{
+    display:flex;
+    flex-direction: column;
+    width:30vw;
+}
+#allcentersdetailsright{
+   background-color: burlywood;
+   height:60vh;
+   width:30vw;
+    
+}
